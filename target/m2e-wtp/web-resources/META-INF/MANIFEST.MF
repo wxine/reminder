@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: reminder Maven Webapp
+Implementation-Version: 1.0.0
+Built-By: zz
+Implementation-Vendor-Id: com.demo
+Build-Jdk: 1.8.0_51
+Implementation-URL: Demo project for Spring Boot
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

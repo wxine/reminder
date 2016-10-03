@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link th:href="@{/css/style1.css}" rel="stylesheet" type="text/css" />
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/css/bootstrap-material-design.min.css}"
+	rel="stylesheet">
+<link th:href="@{/css/material-design-iconic-font.min.css}"
+	rel="stylesheet">
+<link th:href="@{/css/style.css}" rel="stylesheet">
+<link title="style4" rel="stylesheet" th:href="@{/css/style4.css}" type="text/css" />
+<link title="style2" rel="alternate stylesheet" th:href="@{/css/style2.css}" type="text/css" />
+<link title="style3" rel="alternate stylesheet" th:href="@{/css/style3.css}" type="text/css" />
+<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+<!-- <script src="http://code.jquery.com/jquery-latest.js"></script> -->
+</head>
+<body>
+
+	<!-- 新建按钮 -->
+	<div id="servicesBox">
+		<div id="serBox2" class="serBox" onclick="serFocus(2)">
+			<div class="txt1">新建</div>
+		</div>
+	</div>
+
+	<!-- 主項 -->
+	<div class="content" th:each="reminder,row:${reminder}" style="">
+		<div class="container c-alt" th:class="${reminder?.id}">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="card">
+						<div class="card-body card-padding">
+							<div name="infobody" class="Jcontent">
+								<strong th:text="${reminder?.title}"></strong>
+								<p class="Jtext"></p>
+								<p id="content" th:text="${reminder?.content}"></p>
+							</div>
+							<ul class="list-unstyled clearfix wpb-actions">
+								<div class="pull-right">
+									<li th:class="${reminder?.id}">
+										<button name="btn_delete" type="button"
+											class="btn btn-primary btn-sm waves-effect" value="delete"
+											onclick="deButton(this)">delete</button>
+										<button name="btn_update" type="button"
+											class="btn btn-primary btn-sm waves-effect" value="update"
+											onclick="updateButton(this)">update</button>
+									</li>
+								</div>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 新建菜單 -->
+	<div class="servicesPop">
+		<div id="serFocus">
+			<div class="fr" style="position: relative;">
+				<!-- 关闭按钮 -->
+				<a href="javascript:void(0)" class="close" onclick="closeSerPop()">&nbsp;</a>
+			</div>
+
+			<div class="form_content">
+				<form id="form1" name="form1" method="post" action="/save">
+					<fieldset>
+						<legend>NEW</legend>
+						<div class="form-row">
+							<div class="field-label">
+								<label for="textfield">标题</label>：
+							</div>
+							<div class="field-widget">
+								<input name="title" id="title" class="required" />
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="field-label">
+								<label for="textfield2">详情</label>：
+							</div>
+							<div class="field-widget">
+								<textarea name="content" id="content" class="required"></textarea>
+							</div>
+						</div>
+					</fieldset>
+					<input type="submit" class="submit" value="Save" />
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	function serFocus(i) {
+		$(".servicesPop").slideDown("normal");
+		changeflash(i);
+	}
+	function closeSerPop() {
+		$(".servicesPop").slideUp("fast");
+	}
+
+	var currentindex = 1;
+	function changeflash(i) {
+		currentindex = i;
+		for (j = 1; j <= 6; j++) {
+			if (j == i) {
+				$("#flash" + j).fadeIn("normal");
+				$("#flash" + j).css("display", "block");
+				$("#f" + j).removeClass();
+				$("#f" + j).addClass("dq");
+			} else {
+				$("#flash" + j).css("display", "none");
+				$("#f" + j).removeClass();
+				$("#f" + j).addClass("no");
+			}
+		}
+	}
+
+	function deButton(obj) {
+		var par = obj.parentElement;
+		window.location.href = "http://localhost:8081/delete?id="
+				+ par.className;
+		par.remove();
+	}
+
+	function updateButton(obj) {
+		var par = obj.parentElement;
+		window.location.href = "http://localhost:8081/updateM?id="
+				+ par.className;
+
+	}
+</script>
+</html>

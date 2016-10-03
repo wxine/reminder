@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link title="style4" rel="stylesheet" th:href="@{/css/style4.css}" type="text/css" />
+<link title="style2" rel="alternate stylesheet" th:href="@{/css/style2.css}" type="text/css" />
+<link title="style3" rel="alternate stylesheet" th:href="@{/css/style3.css}" type="text/css" />
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div class="form_content">
+    <form id="form1" name="form1" method="post" action="/updatA"
+		th:object="${reminder}">
+    <fieldset>
+        <legend>UPDATE</legend>
+        <div class="form-row">
+		<input type="hidden" th:value="${rem.id}" name="id"> 
+            <div class="field-label"><label for="textfield">标题</label>：</div>
+            <div class="field-widget"><input name="title" id="title" class="required" th:value="${rem.title}"/></div>
+        </div>
+        
+        <div class="form-row">
+            <div class="field-label"><label for="textfield2">详情</label>：</div>
+            <div class="field-widget"><textarea name="content" id="content" class="required" th:text="${rem.content}"></textarea></div>
+        </div>
+    </fieldset>
+    <input type="submit" class="submit" value="Save" />
+    </form>
+    </div>
+</body>
+
+</html>

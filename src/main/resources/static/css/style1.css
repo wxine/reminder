@@ -1,0 +1,99 @@
+@CHARSET "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+a, img {
+	border: 0;
+	text-decoration: none;
+}
+
+body {
+	font: 12px/180% Arial, Helvetica, sans-serif, "新宋体";
+}
+
+.fr {
+	float: right;
+}
+
+.fgH20 {
+	float: left;
+	width: 14px;
+	height: 270px;
+}
+
+/*------ servicesBox ------*/
+#servicesBox {
+	width: 100%;
+	height: 0px;
+	margin: 0 auto;
+	clear: both;
+	padding: 14px 0px 20px 0px;
+	line-height: 18px;
+	color: #999999;
+	font-size: 12px;
+} /* 居中 */
+#servicesBox .serBox {
+	border: 1px solid #000;
+	cursor: pointer;
+	display: inline;
+	width: 100px;
+	height: 50px;
+	float: Right;
+	overflow: hidden;
+	background-color: #f7f7f7;
+	position: relative;
+	padding: 0;
+	margin-right: 10px
+}
+
+#servicesBox .serBox .txt1 {
+	width: 240px;
+	height: 100px;
+	color: #999999;
+	position: absolute;
+	top: 17px;
+	left: 38px;
+	z-index: 99;
+}
+
+/* form表单 */
+.servicesPop {
+	background: #F1F1F1;
+	width: 100%;
+	clear: both;
+	height: 320px;
+	padding-top: 33px;
+	position: absolute;
+	top: 2px;
+	left: 0px;
+	z-index: 999;
+	display: none
+}
+
+.servicesPop #serFocus {
+	width: 960px;
+	height: 273px;
+	margin: 0 auto;
+	clear: both;
+	background-color: #ffffff;
+}
+
+a.close {
+	cursor: pointer;
+	display: inline-block;
+	width: 28px;
+	height: 28px;
+	background: url(../images/bt_bg.gif) no-repeat 0px -608px;
+	position: absolute;
+	top: 0px;
+	z-index: 99;
+	right: 0px;
+}
+
+a.close:hover {
+	background: url(../images/bt_bg.gif) no-repeat -38px -608px;
+}
